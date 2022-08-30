@@ -76,21 +76,6 @@ public class InputManager implements Listener {
         return shifts.containsKey(player.getUniqueId());
     }
 
-
-
-    @EventHandler
-    public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
-        UUID uuid = player.getUniqueId();
-        if (chats.containsKey(uuid)) {
-            event.setCancelled(true);
-            ChatInput chatInput = chats.get(uuid);
-            if (chatInput.onChatInput(player, event.getMessage())) {
-                chats.remove(uuid);
-            }
-        }
-    }
-
     @EventHandler
     public void onPlayerDropItem(PlayerDropItemEvent event) {
         Player player = event.getPlayer();
