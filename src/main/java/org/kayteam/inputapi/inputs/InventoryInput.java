@@ -13,7 +13,7 @@ public class InventoryInput {
     private final String title;
     private final int rows;
     private final Inventory inventory;
-    public final List<Integer> availableSlots;
+    public final List<Integer> disabledSlots;
 
     public InventoryInput(String title, int rows) {
 
@@ -23,7 +23,7 @@ public class InventoryInput {
 
         this.inventory = Bukkit.createInventory(null, rows * 9, ChatColor.translateAlternateColorCodes('&', title));
 
-        this.availableSlots = new ArrayList<>();
+        this.disabledSlots = new ArrayList<>();
 
     }
 
@@ -58,12 +58,13 @@ public class InventoryInput {
     }
 
     /**
-     * Get available slots
-     * @return Available slots
+     * Get disabled slots
+     * @return Disabled slots
      */
-    public List<Integer> getAvailableSlots() {
+    public List<Integer> getDisabledSlots() {
 
-        return availableSlots;
+        return disabledSlots;
+
     }
 
     /**
