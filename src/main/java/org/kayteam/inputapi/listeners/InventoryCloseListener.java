@@ -46,7 +46,7 @@ public class InventoryCloseListener implements Listener {
 
         HashMap<Integer, ItemStack> items = getItems(inventoryInput);
 
-        if ( ! inventoryInput.onCloseInventory(inventory, items)) return;
+        if ( ! inventoryInput.onCloseInventory(inventory, items))   return;
 
         player.openInventory(inventory);
 
@@ -62,13 +62,13 @@ public class InventoryCloseListener implements Listener {
 
         for (int i = 0; i < (inventoryInput.getRows() * 9); i++) {
 
-            if ( disabledSlots.contains(i) ) continue;
+            if (disabledSlots.contains(i))   continue;
 
             ItemStack itemStack = inventory.getItem(i);
 
-            if (itemStack == null) continue;
+            if (itemStack == null)   continue;
 
-            if (itemStack.getType().equals(Material.AIR)) continue;
+            if (itemStack.getType().equals(Material.AIR))   continue;
 
             items.put(i, itemStack);
 
