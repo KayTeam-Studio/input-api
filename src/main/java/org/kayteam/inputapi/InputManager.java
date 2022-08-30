@@ -47,6 +47,8 @@ public class InputManager implements Listener {
 
         pluginManager.registerEvents(new PlayerQuitListener(this), javaPlugin);
 
+        pluginManager.registerEvents(new InventoryClickListener(this), javaPlugin);
+
     }
 
     public JavaPlugin getJavaPlugin() {
