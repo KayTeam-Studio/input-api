@@ -5,16 +5,21 @@ import org.bukkit.ChatColor;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InventoryInput {
 
     private final String title;
     private final int rows;
     private final Inventory inventory;
+    public final List<Integer> availableSlots;
 
     public InventoryInput(String title, int rows) {
         this.title = ChatColor.translateAlternateColorCodes('&', title);
         this.rows = rows;
         this.inventory = Bukkit.createInventory(null, rows * 9, ChatColor.translateAlternateColorCodes('&', title));
+        this.availableSlots = new ArrayList<>();
     }
 
     /**
@@ -22,7 +27,9 @@ public class InventoryInput {
      * @return the inventory title
      */
     public String getTitle() {
+
         return title;
+
     }
 
     /**
@@ -30,7 +37,9 @@ public class InventoryInput {
      * @return The inventory rows
      */
     public int getRows() {
+
         return rows;
+
     }
 
     /**
@@ -38,7 +47,18 @@ public class InventoryInput {
      * @return The inventory
      */
     public Inventory getInventory() {
+
         return inventory;
+
+    }
+
+    /**
+     * Get available slots
+     * @return Available slots
+     */
+    public List<Integer> getAvailableSlots() {
+
+        return availableSlots;
     }
 
     /**
