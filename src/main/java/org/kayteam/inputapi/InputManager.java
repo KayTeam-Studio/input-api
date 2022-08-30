@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
     import org.kayteam.inputapi.inputs.*;
     import org.kayteam.inputapi.listeners.AsyncPlayerChatListener;
     import org.kayteam.inputapi.listeners.BlockBreakListener;
+    import org.kayteam.inputapi.listeners.PlayerDropItemListener;
 
     import java.util.HashMap;
 import java.util.UUID;
@@ -38,6 +39,8 @@ public class InputManager implements Listener {
         pluginManager.registerEvents(new BlockBreakListener(this), javaPlugin);
 
         pluginManager.registerEvents(new AsyncPlayerChatListener(this), javaPlugin);
+
+        pluginManager.registerEvents(new PlayerDropItemListener(this), javaPlugin);
 
     }
 
@@ -87,17 +90,7 @@ public class InputManager implements Listener {
         return shifts.containsKey(player.getUniqueId());
     }
 
-    @EventHandler
-    public void onPlayerDropItem(PlayerDropItemEvent event) {
-        Player player = event.getPlayer();
-        UUID uuid = player.getUniqueId();
-        if (drops.containsKey(uuid)) {
-            event.setCancelled(true);
-            DropInput chatInput = drops.get(uuid);
-            chatInput.onPLayerDrop(player, event.getItemDrop().getItemStack());
-            drops.remove(uuid);
-        }
-    }
+
 
     @EventHandler
     public void onPlayerToggleSneak(PlayerToggleSneakEvent event) {
