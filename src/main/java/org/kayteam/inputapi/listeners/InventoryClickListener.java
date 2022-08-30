@@ -3,8 +3,6 @@ package org.kayteam.inputapi.listeners;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.kayteam.inputapi.InputManager;
 import org.kayteam.inputapi.inputs.InventoryInput;
@@ -41,12 +39,10 @@ public class InventoryClickListener implements Listener {
 
         List<Integer> disabledSlots = inventoryInput.getDisabledSlots();
 
-        if ( ! disabledSlots.contains(slot)) return;
+        if ( ! disabledSlots.contains(slot))   return;
 
         event.setCancelled(true);
 
     }
-
-
 
 }
