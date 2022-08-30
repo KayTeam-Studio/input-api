@@ -34,6 +34,16 @@ public class InventoryClickListener implements Listener {
 
         int slot = event.getRawSlot();
 
+        if (slot > 0 && slot < inventoryInput.getRows() * 9) {
+
+            player.sendMessage("> Dentro");
+
+        } else {
+
+            player.sendMessage("> Fuera");
+
+        }
+
         player.sendMessage(" ");
         player.sendMessage("> Slot: " + slot);
         player.sendMessage("> InventoryAction: " + event.getAction());
