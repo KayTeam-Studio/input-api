@@ -16,10 +16,15 @@ public class InventoryInput {
     public final List<Integer> availableSlots;
 
     public InventoryInput(String title, int rows) {
+
         this.title = ChatColor.translateAlternateColorCodes('&', title);
+
         this.rows = rows;
+
         this.inventory = Bukkit.createInventory(null, rows * 9, ChatColor.translateAlternateColorCodes('&', title));
+
         this.availableSlots = new ArrayList<>();
+
     }
 
     /**
