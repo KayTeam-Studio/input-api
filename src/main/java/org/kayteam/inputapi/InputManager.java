@@ -50,6 +50,9 @@ public class InputManager implements Listener {
         pluginManager.registerEvents(new InventoryOpenListener(this), javaPlugin);
 
         pluginManager.registerEvents(new InventoryClickListener(this), javaPlugin);
+
+        pluginManager.registerEvents(new InventoryCloseListener(this), javaPlugin);
+
     }
 
     public JavaPlugin getJavaPlugin() {
