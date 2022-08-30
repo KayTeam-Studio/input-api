@@ -4,7 +4,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.kayteam.inputapi.InputManager;
 import org.kayteam.inputapi.inputs.InventoryInput;
@@ -38,9 +37,7 @@ public class InventoryOpenListener implements Listener {
 
         if ( ! title.equals(inventoryInput.getTitle()))   return;
 
-        Inventory inventory = event.getInventory();
-
-        inventoryInput.onOpenInventory(inventory);
+        inventoryInput.onOpenInventory(inventoryInput);
 
     }
 
