@@ -23,6 +23,7 @@ public class InputManager implements Listener {
     private final HashMap<UUID, ChatInput> chats = new HashMap<>();
     private final HashMap<UUID, DropInput> drops = new HashMap<>();
     private final HashMap<UUID, ShiftInput> shifts = new HashMap<>();
+    private final HashMap<UUID, InventoryInput> inventories = new HashMap<>();
 
     public InputManager(JavaPlugin javaPlugin) {
 
@@ -78,6 +79,12 @@ public class InputManager implements Listener {
 
     }
 
+    public HashMap<UUID, InventoryInput> getInventories() {
+
+        return inventories;
+
+    }
+
     public void addInput(Player player, BlockBreakInput input) {
 
         blocks.put(player.getUniqueId(), input);
@@ -102,27 +109,69 @@ public class InputManager implements Listener {
 
     }
 
-    public boolean isBlockInput(Player player) {
+    public void addInput(Player player, InventoryInput input) {
+
+        inventories.put(player.getUniqueId(), input);
+
+    }
+
+    public boolean hasBlockInput(Player player) {
 
         return blocks.containsKey(player.getUniqueId());
 
     }
 
-    public boolean isChatInput(Player player) {
+    public boolean hasChatInput(Player player) {
 
         return chats.containsKey(player.getUniqueId());
 
     }
 
-    public boolean isDropInput(Player player) {
+    public boolean hasDropInput(Player player) {
 
         return drops.containsKey(player.getUniqueId());
 
     }
 
-    public boolean isShiftInput(Player player) {
+    public boolean hasShiftInput(Player player) {
 
         return shifts.containsKey(player.getUniqueId());
+
+    }
+
+    public boolean hasInventoryInput(Player player) {
+
+        return inventories.containsKey(player.getUniqueId());
+
+    }
+
+    public void removeBlockInput(Player player) {
+
+        blocks.remove(player.getUniqueId());
+
+    }
+
+    public void removeChatInput(Player player) {
+
+        chats.remove(player.getUniqueId());
+
+    }
+
+    public void removeDropInput(Player player) {
+
+        drops.remove(player.getUniqueId());
+
+    }
+
+    public void removeShiftInput(Player player) {
+
+        shifts.remove(player.getUniqueId());
+
+    }
+
+    public void removeInventoryInput(Player player) {
+
+        inventories.remove(player.getUniqueId());
 
     }
 
