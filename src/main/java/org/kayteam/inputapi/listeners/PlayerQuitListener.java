@@ -1,9 +1,12 @@
 package org.kayteam.inputapi.listeners;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.kayteam.inputapi.InputManager;
+
+import java.util.UUID;
 
 public class PlayerQuitListener implements Listener {
 
@@ -18,13 +21,19 @@ public class PlayerQuitListener implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
 
-        inputManager.getBlocks().remove(event.getPlayer().getUniqueId());
+        Player player = event.getPlayer();
 
-        inputManager.getChats().remove(event.getPlayer().getUniqueId());
+        UUID uuid = player.getUniqueId();
 
-        inputManager.getDrops().remove(event.getPlayer().getUniqueId());
+        inputManager.getBlocks().remove(uuid);
 
-        inputManager.getShifts().remove(event.getPlayer().getUniqueId());
+        inputManager.getChats().remove(uuid);
+
+        inputManager.getDrops().remove(uuid);
+
+        inputManager.getShifts().remove(uuid);
+
+        inputManager.getInventories().remove(uuid);
 
     }
 
