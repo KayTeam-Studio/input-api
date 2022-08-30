@@ -39,6 +39,8 @@ public class InventoryCloseListener implements Listener {
 
         inventoryInput.onCloseInventory(inventoryInput);
 
+        inputManager.removeInventoryInput(player);
+
     }
 
 }
