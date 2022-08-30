@@ -14,7 +14,9 @@ public class PlayerDropItemListener implements Listener {
     private final InputManager inputManager;
 
     public PlayerDropItemListener(InputManager inputManager) {
+
         this.inputManager = inputManager;
+
     }
 
     @EventHandler

@@ -93,13 +93,4 @@ public class InputManager implements Listener {
         return shifts.containsKey(player.getUniqueId());
     }
 
-
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        blocks.remove(event.getPlayer().getUniqueId());
-        chats.remove(event.getPlayer().getUniqueId());
-        drops.remove(event.getPlayer().getUniqueId());
-        shifts.remove(event.getPlayer().getUniqueId());
-    }
 }

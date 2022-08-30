@@ -17,7 +17,9 @@ public class PlayerToggleSneakListener implements Listener {
     private final InputManager inputManager;
 
     public PlayerToggleSneakListener(InputManager inputManager) {
+
         this.inputManager = inputManager;
+
     }
 
     @EventHandler

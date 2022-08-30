@@ -14,7 +14,9 @@ public class AsyncPlayerChatListener implements Listener {
     private final InputManager inputManager;
 
     public AsyncPlayerChatListener(InputManager inputManager) {
+
         this.inputManager = inputManager;
+
     }
 
     @EventHandler
