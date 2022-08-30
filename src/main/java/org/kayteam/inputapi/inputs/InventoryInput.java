@@ -74,22 +74,6 @@ public class InventoryInput {
     public void onOpenInventory(InventoryInput inventoryInput) {}
 
     /**
-     * Executed when the player adds an item to the inventory.
-     * @param inventory the inventory.
-     * @param slot position where the item was added.
-     * @param itemStack the added item.
-     */
-    public void onAddItem(Inventory inventory, int slot, ItemStack itemStack) {}
-
-    /**
-     * Executed when the player remove an item to the inventory.
-     * @param inventory the inventory.
-     * @param slot position where the item was removed.
-     * @param itemStack the removed item.
-     */
-    public void onRemoveItem(Inventory inventory, int slot, ItemStack itemStack) {}
-
-    /**
      * Executed when the player closes this inventory.
      * @param inventoryInput the inventory input.
      */
