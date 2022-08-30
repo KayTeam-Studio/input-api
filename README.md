@@ -10,9 +10,9 @@
 
 ```XML
 <dependency>
-	    <groupId>com.github.KayTeam-Studio</groupId>
-	    <artifactId>input-api</artifactId>
-	    <version>VERSION</version>
+    <groupId>com.github.KayTeam-Studio</groupId>
+    <artifactId>input-api</artifactId>
+    <version>VERSION</version>
 </dependency>
 ```
 ## Gradle
@@ -24,7 +24,7 @@ repositories {
  
 ```groovy
 dependencies {
-	        implementation 'com.github.KayTeam-Studio:input-api:VERSION'
+    implementation 'com.github.KayTeam-Studio:input-api:VERSION'
 }
 ```
 Check the last released version in Releases section
