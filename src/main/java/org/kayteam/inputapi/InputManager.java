@@ -1,5 +1,6 @@
 package org.kayteam.inputapi;
 
+    import org.bukkit.Server;
     import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,8 +9,10 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
+    import org.bukkit.plugin.PluginManager;
     import org.bukkit.plugin.java.JavaPlugin;
     import org.kayteam.inputapi.inputs.*;
+    import org.kayteam.inputapi.listeners.AsyncPlayerChatListener;
     import org.kayteam.inputapi.listeners.BlockBreakListener;
 
     import java.util.HashMap;
@@ -27,7 +30,15 @@ public class InputManager implements Listener {
     }
 
     public void registerManager() {
-        javaPlugin.getServer().getPluginManager().registerEvents(new BlockBreakListener(this), javaPlugin);
+
+        Server server = javaPlugin.getServer();
+
+        PluginManager pluginManager = server.getPluginManager();
+
+        pluginManager.registerEvents(new BlockBreakListener(this), javaPlugin);
+
+        pluginManager.registerEvents(new AsyncPlayerChatListener(this), javaPlugin);
+
     }
 
     public JavaPlugin getJavaPlugin() {
