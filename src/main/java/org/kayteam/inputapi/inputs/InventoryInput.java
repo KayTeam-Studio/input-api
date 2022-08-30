@@ -6,7 +6,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class InventoryInput {
@@ -70,9 +69,9 @@ public class InventoryInput {
 
     /**
      * Executed when the player opens this inventory.
-     * @param inventory open inventory.
+     * @param inventoryInput the inventory input.
      */
-    public void onOpenInventory(Inventory inventory) {}
+    public void onOpenInventory(InventoryInput inventoryInput) {}
 
     /**
      * Executed when the player adds an item to the inventory.
@@ -92,10 +91,8 @@ public class InventoryInput {
 
     /**
      * Executed when the player closes this inventory.
-     * @param inventory the inventory.
-     * @param items items added for the player.
-     * @return if true, the inventory is closed if not, the inventory is reopened.
+     * @param inventoryInput the inventory input.
      */
-    public boolean onCloseInventory(Inventory inventory, HashMap<Integer, ItemStack> items) { return true; }
+    public void onCloseInventory(InventoryInput inventoryInput) {}
 
 }
