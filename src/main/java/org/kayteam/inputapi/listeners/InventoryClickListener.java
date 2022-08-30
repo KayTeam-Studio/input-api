@@ -9,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.kayteam.inputapi.InputManager;
 import org.kayteam.inputapi.inputs.InventoryInput;
 
+import java.util.List;
 import java.util.UUID;
 
 public class InventoryClickListener implements Listener {
@@ -28,27 +29,21 @@ public class InventoryClickListener implements Listener {
 
         UUID uuid = player.getUniqueId();
 
-        if ( ! inputManager.getInventories().containsKey(uuid)) return;
+        if ( ! inputManager.getInventories().containsKey(uuid))   return;
 
         InventoryInput inventoryInput = inputManager.getInventories().get(uuid);
 
         int slot = event.getRawSlot();
 
-        if (slot > 0 && slot < inventoryInput.getRows() * 9) {
+        if ( ! (slot > -1))   return;
 
-            player.sendMessage("> Dentro");
+        if ( ! (slot < inventoryInput.getRows() * 9))   return;
 
-        } else {
+        List<Integer> disabledSlots = inventoryInput.getDisabledSlots();
 
-            player.sendMessage("> Fuera");
+        if ( ! disabledSlots.contains(slot)) return;
 
-        }
-
-        player.sendMessage(" ");
-        player.sendMessage("> Slot: " + slot);
-        player.sendMessage("> InventoryAction: " + event.getAction());
-        player.sendMessage("> InventoryAction: " + event.getSlotType());
-        player.sendMessage(" ");
+        event.setCancelled(true);
 
     }
 
