@@ -8,16 +8,47 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
-import org.kayteam.inputapi.inputs.*;
+    import org.bukkit.plugin.java.JavaPlugin;
+    import org.kayteam.inputapi.inputs.*;
+    import org.kayteam.inputapi.listeners.BlockBreakListener;
 
-import java.util.HashMap;
+    import java.util.HashMap;
 import java.util.UUID;
 public class InputManager implements Listener {
 
+    private final JavaPlugin javaPlugin;
     private final HashMap<UUID, BlockBreakInput> blocks = new HashMap<>();
     private final HashMap<UUID, ChatInput> chats = new HashMap<>();
     private final HashMap<UUID, DropInput> drops = new HashMap<>();
     private final HashMap<UUID, ShiftInput> shifts = new HashMap<>();
+
+    public InputManager(JavaPlugin javaPlugin) {
+        this.javaPlugin = javaPlugin;
+    }
+
+    public void registerManager() {
+        javaPlugin.getServer().getPluginManager().registerEvents(new BlockBreakListener(this), javaPlugin);
+    }
+
+    public JavaPlugin getJavaPlugin() {
+        return javaPlugin;
+    }
+
+    public HashMap<UUID, BlockBreakInput> getBlocks() {
+        return blocks;
+    }
+
+    public HashMap<UUID, ChatInput> getChats() {
+        return chats;
+    }
+
+    public HashMap<UUID, DropInput> getDrops() {
+        return drops;
+    }
+
+    public HashMap<UUID, ShiftInput> getShifts() {
+        return shifts;
+    }
 
     public void addInput(Player player, BlockBreakInput input) {
         blocks.put(player.getUniqueId(), input);
@@ -45,15 +76,7 @@ public class InputManager implements Listener {
         return shifts.containsKey(player.getUniqueId());
     }
 
-    @EventHandler
-    public void onBlockBreak(BlockBreakEvent event) {
-        Player player = event.getPlayer();
-        UUID uuid = player.getUniqueId();
-        if (blocks.containsKey(uuid)) {
-            BlockBreakInput blockBreakInput = blocks.get(uuid);
-            if (blockBreakInput.onBlockBreak(player, event)) blocks.remove(uuid);
-        }
-    }
+
 
     @EventHandler
     public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
