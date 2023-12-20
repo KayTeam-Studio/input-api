@@ -3,7 +3,6 @@ package org.kayteam.inputapi.inputs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public class InventoryInput {
 
     /**
      * Get inventory title.
+     *
      * @return the inventory title.
      */
     public String getTitle() {
@@ -39,6 +39,7 @@ public class InventoryInput {
 
     /**
      * Get inventory rows.
+     *
      * @return The inventory rows.
      */
     public int getRows() {
@@ -49,6 +50,7 @@ public class InventoryInput {
 
     /**
      * Get inventory.
+     *
      * @return The inventory.
      */
     public Inventory getInventory() {
@@ -59,6 +61,7 @@ public class InventoryInput {
 
     /**
      * Get disabled slots.
+     *
      * @return Disabled slots.
      */
     public List<Integer> getDisabledSlots() {
@@ -69,14 +72,18 @@ public class InventoryInput {
 
     /**
      * Executed when the player opens this inventory.
+     *
      * @param inventoryInput the inventory input.
      */
-    public void onOpenInventory(InventoryInput inventoryInput) {}
+    public void onOpenInventory(InventoryInput inventoryInput) {
+    }
 
     /**
      * Executed when the player closes this inventory.
+     *
      * @param inventoryInput the inventory input.
      */
-    public void onCloseInventory(InventoryInput inventoryInput) {}
+    public void onCloseInventory(InventoryInput inventoryInput) {
+    }
 
 }

@@ -6,8 +6,8 @@ public interface ShiftInput {
 
     /**
      * Executed when the player toggle sneak.
+     *
      * @param player the player.
      */
     void onShift(Player player);
-
 }

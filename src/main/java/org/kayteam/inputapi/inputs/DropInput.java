@@ -7,14 +7,17 @@ public interface DropInput {
 
     /**
      * Executed when the player drop an item.
-     * @param player the player.
+     *
+     * @param player    the player.
      * @param itemStack the ItemStack dropped.
+     * @return when true is returned the player is removed from the InputManager.
      */
-    void onPLayerDrop(Player player, ItemStack itemStack);
+    boolean onPlayerDrop(Player player, ItemStack itemStack);
 
     /**
      * Executed when the player toggle sneak.
      * When executed, the player is removed from the InputManager.
+     *
      * @param player the player.
      */
     void onPlayerSneak(Player player);

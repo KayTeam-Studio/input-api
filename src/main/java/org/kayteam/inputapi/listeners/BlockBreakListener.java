@@ -14,26 +14,20 @@ public class BlockBreakListener implements Listener {
     private final InputManager inputManager;
 
     public BlockBreakListener(InputManager inputManager) {
-
         this.inputManager = inputManager;
-
     }
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
-
         Player player = event.getPlayer();
-
         UUID uuid = player.getUniqueId();
 
-        if ( ! inputManager.getBlocks().containsKey(uuid))   return;
+        if (!inputManager.getBlocks().containsKey(uuid)) return;
 
         BlockBreakInput blockBreakInput = inputManager.getBlocks().get(uuid);
 
-        if ( ! blockBreakInput.onBlockBreak(player, event))   return;
+        if (!blockBreakInput.onBlockBreak(player, event)) return;
 
         inputManager.getBlocks().remove(uuid);
-
     }
-
 }

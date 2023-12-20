@@ -14,28 +14,21 @@ public class PlayerDropItemListener implements Listener {
     private final InputManager inputManager;
 
     public PlayerDropItemListener(InputManager inputManager) {
-
         this.inputManager = inputManager;
-
     }
 
     @EventHandler
     public void onPlayerDropItem(PlayerDropItemEvent event) {
-
         Player player = event.getPlayer();
-
         UUID uuid = player.getUniqueId();
 
-        if ( ! inputManager.getDrops().containsKey(uuid))   return;
+        if (!inputManager.getDrops().containsKey(uuid)) return;
 
         event.setCancelled(true);
-
         DropInput chatInput = inputManager.getDrops().get(uuid);
 
-        chatInput.onPLayerDrop(player, event.getItemDrop().getItemStack());
+        if (!chatInput.onPlayerDrop(player, event.getItemDrop().getItemStack())) return;
 
         inputManager.getDrops().remove(uuid);
-
     }
-
 }

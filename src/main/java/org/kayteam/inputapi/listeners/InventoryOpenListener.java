@@ -15,30 +15,22 @@ public class InventoryOpenListener implements Listener {
     private final InputManager inputManager;
 
     public InventoryOpenListener(InputManager inputManager) {
-
         this.inputManager = inputManager;
-
     }
 
     @EventHandler
     public void onInventoryOpen(InventoryOpenEvent event) {
-
         Player player = (Player) event.getPlayer();
-
         UUID uuid = player.getUniqueId();
 
-        if ( ! inputManager.getInventories().containsKey(uuid))   return;
+        if (!inputManager.getInventories().containsKey(uuid)) return;
 
         InventoryInput inventoryInput = inputManager.getInventories().get(uuid);
-
         InventoryView inventoryView = event.getView();
-
         String title = inventoryView.getTitle();
 
-        if ( ! title.equals(inventoryInput.getTitle()))   return;
+        if (!title.equals(inventoryInput.getTitle())) return;
 
         inventoryInput.onOpenInventory(inventoryInput);
-
     }
-
 }

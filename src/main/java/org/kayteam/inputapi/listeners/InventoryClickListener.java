@@ -15,26 +15,20 @@ public class InventoryClickListener implements Listener {
     private final InputManager inputManager;
 
     public InventoryClickListener(InputManager inputManager) {
-
         this.inputManager = inputManager;
-
     }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-
         Player player = (Player) event.getWhoClicked();
-
         UUID uuid = player.getUniqueId();
 
         if ( ! inputManager.getInventories().containsKey(uuid))   return;
 
         InventoryInput inventoryInput = inputManager.getInventories().get(uuid);
-
         int slot = event.getRawSlot();
 
         if ( ! (slot > -1))   return;
-
         if ( ! (slot < inventoryInput.getRows() * 9))   return;
 
         List<Integer> disabledSlots = inventoryInput.getDisabledSlots();
@@ -42,7 +36,5 @@ public class InventoryClickListener implements Listener {
         if ( ! disabledSlots.contains(slot))   return;
 
         event.setCancelled(true);
-
     }
-
 }
